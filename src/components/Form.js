@@ -6,7 +6,7 @@ function Form(props) {
   return (
     <form onSubmit={props.submitHandler}>
       <SearchBar/>
-      <Button/>
+      <Button content="Search"/>
     </form>
   )
 }

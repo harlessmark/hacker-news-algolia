@@ -1,11 +1,16 @@
 import React from 'react'
+import Result from './Result'
 
-function Results() {
+function ResultsContainer(props) {
   return (
-    <div>
-      
-    </div>
+    <ol>
+      {props.results === null ? null : (
+        props.results.map(item => {
+          return <Result item={item}/>
+        })
+      )}
+    </ol>
   )
 }
 
-export default Results
+export default ResultsContainer
