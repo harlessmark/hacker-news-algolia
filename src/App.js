@@ -1,25 +1,36 @@
-import React, { useState } from 'react';
-import Form from './components/Form'
-import Results from './components/Results'
+import React from "react";
+import store from "./store";
+import { Provider } from "react-redux";
+import "./App.css";
 
-import './App.css';
+import Form from "./components/Form";
+import Results from "./components/Results";
 
 function App() {
-  const [results, setResults] = useState(null)
+  const searchResults = data => {
+    return {
+      type: "add",
+      payload: {
+        searchQueries: data.hits,
+      },
+    };
+  };
 
-  const submitHandler = (e) => {
-    e.preventDefault()
+  const submitHandler = e => {
+    e.preventDefault();
 
-    fetch(`http://hn.algolia.com/api/v1/search?query=${e.target.search.value}&tags=story`)
+    fetch(
+      `http://hn.algolia.com/api/v1/search?query=${e.target.search.value}&tags=story`
+    )
       .then(res => res.json())
-      .then(data => setResults(data.hits))
-  }
+      .then(data => store.dispatch(searchResults(data)));
+  };
 
   return (
-    <div>
-      <Form submitHandler={submitHandler}/>
-      <Results results={results}/>
-    </div>
+    <Provider store={store}>
+      <Form submitHandler={submitHandler} />
+      <Results />
+    </Provider>
   );
 }
 

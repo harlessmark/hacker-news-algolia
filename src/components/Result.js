@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Results(props) {
+function Result(props) {
   return (
     <li key={props.item._tags[2]}>
       <a href={props.item.url} target='_blank' rel="noopener noreferrer">
@@ -10,4 +10,4 @@ function Results(props) {
   )
 }
 
-export default Results
+export default Result

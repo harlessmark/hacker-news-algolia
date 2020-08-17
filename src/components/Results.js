@@ -1,16 +1,19 @@
 import React from 'react'
 import Result from './Result'
+import { useSelector } from 'react-redux'
 
-function ResultsContainer(props) {
+function Results() {
+  const results = useSelector(state => state)
+  const lastResults = results[results.length -1]
+
   return (
     <ol>
-      {props.results === null ? null : (
-        props.results.map(item => {
-          return <Result item={item}/>
-        })
-      )}
+      {lastResults &&
+        lastResults.searchQueries.map((item) => {
+          return <Result item={item} />;
+        })}
     </ol>
   )
 }
 
-export default ResultsContainer
+export default Results
