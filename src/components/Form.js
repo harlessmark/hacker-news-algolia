@@ -26,8 +26,8 @@ const Form = () => {
     saveSearchResults(data);
   };
 
-  const changeHandler = event => {
-    setSearchQuery(event.target.value);
+  const changeHandler = e => {
+    setSearchQuery(e.target.value);
   };
 
   return (
@@ -38,7 +38,7 @@ const Form = () => {
         style={{ marginRight: "1rem" }}
         placeholder='Getting hired in a pandemic'
       />
-      <button>Search</button>
+      <button type='SUBMIT'>Search</button>
     </form>
   );
 };
