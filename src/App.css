@@ -4,7 +4,7 @@ body {
 }
 
 ::placeholder {
-  color: black;
+  color: #333333;
 }
 
 a {
@@ -52,4 +52,8 @@ button:hover {
   cursor: pointer;
   border: 2px solid black;
   background-color: white;
+}
+
+button:focus {
+  outline: none;
 }
