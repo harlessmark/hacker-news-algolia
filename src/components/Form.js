@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import store from "../store/store";
+import store from "../index.js";
 
 const Form = () => {
   const [searchQuery, setSearchQuery] = useState(null);
