@@ -31,7 +31,12 @@ const Form = () => {
 
   return (
     <form onSubmit={submitHandler}>
-      <input onChange={changeHandler} style={{ marginRight: "1rem" }}/>
+      <input 
+        placeholder='Getting hired during a panedmic' 
+        onChange={changeHandler} 
+        style={{ marginRight: "1rem" }}
+      />
+      
       <button type='SUBMIT'>Search</button>
     </form>
   );
