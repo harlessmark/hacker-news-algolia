@@ -17,7 +17,7 @@ const Form = () => {
   const submitHandler = async e => {
     e.preventDefault();
 
-    const baseUrl = "http://hn.algolia.com/api/v1/search?query=";
+    const baseUrl = "https://hn.algolia.com/api/v1/search?query=";
     const tags = "&tags=story";
 
     const res = await fetch(baseUrl + e.target.search.value + tags);
