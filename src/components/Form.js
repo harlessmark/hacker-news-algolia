@@ -30,16 +30,15 @@ const Form = () => {
     setSearchQuery(event.target.value);
   };
 
-  const Button = ({ label }) => (
-    <button type='submit' onChange={changeHandler}>
-      {label}
-    </button>
-  );
-
   return (
     <form onSubmit={submitHandler}>
-      <input name='search' onChange={changeHandler} />
-      <Button label='Search' />
+      <input
+        name='search'
+        onChange={changeHandler}
+        style={{ marginRight: "1rem" }}
+        placeholder='Getting hired in a pandemic'
+      />
+      <button>Search</button>
     </form>
   );
 };
