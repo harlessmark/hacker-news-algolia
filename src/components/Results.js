@@ -1,19 +1,22 @@
 import React from 'react'
-import Result from './Result'
 import { useSelector } from 'react-redux'
 
-function Results() {
-  const results = useSelector(state => state)
-  const lastResults = results[results.length -1]
+const Results = () => {
+  const results = useSelector(state => state.results);
 
-  return (
-    <ol>
-      {lastResults &&
-        lastResults.searchQueries.map((item) => {
-          return <Result item={item} />;
-        })}
-    </ol>
-  )
-}
+const result = (item) => (
+  <li key={item._tags[2]}>
+    <a href={item.url} target='_blank' rel="noopener noreferrer">
+      {item.title}
+    </a>
+  </li>
+);
 
-export default Results
+return (
+  <ol>
+    {results && results.map((item) => result(item))}
+  </ol>
+  );
+};
+
+export default Results;
