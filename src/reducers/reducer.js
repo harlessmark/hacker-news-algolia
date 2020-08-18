@@ -1,19 +1,18 @@
 const initialState = {
   dateSearched: null,
+  searchQuery: null,
   results: [],
 };
 
-export default function reducer(state = initialState, action) {
-  const { type } = action;
-
-  if (type === "add") {
+export default (state = initialState, action) => {
+  if (action.type === "ADD") {
     return {
       ...state,
       dateSearched: Date.now(),
-      results: action.payload.results,
-      searchQuery: action.payload.searchQuery,
+      searchQuery: action.searchQuery,
+      results: action.results,
     };
   }
 
   return state;
-}
+};
